@@ -16,7 +16,7 @@ SHARED_MEMORY_PREFIX = "SHARED_MEMORY"
 SCHEDULE_INTERVAL = 0.1
 PY_MAJOR_VERSION = sys.version_info[0]
 params = utils.read_params()
-
+params_2 = utils.read_params()
 
 def consume_job(shared_memory_name_keys):
     for name_key in shared_memory_name_keys:
