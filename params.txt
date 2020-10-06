@@ -2,7 +2,8 @@
 # SHM_SIZE is the size of the shared memory segment in bytes.
 # PERMISSIONS are in octal (note the leading 0).
 
-SHARED_MEMORY_NAME=/mor
-SHARED_MEMORY_NAME_2=/mor2
+SHARED_MEMORY_NAME_DEPTH_CAMERA=/sm_depth_camera
+SHARED_MEMORY_NAME_ACOUSTIC_SENSOR=/sm_acoustic_sensor
+SHARED_MEMORY_NAME_MOVEMENT_SENSOR=/sm_movement_sensor
 SHM_SIZE=4096
 PERMISSIONS=0600

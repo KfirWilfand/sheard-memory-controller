@@ -1,0 +1,1 @@
+python3 ./services/us_distance_sensor.py && python3 ./services/adxl.py
