@@ -10,7 +10,7 @@ import posix_ipc
 # Utils for this demo
 import utils
 
-import general_controller as gc
+import general_controller
 
 SHARED_MEMORY_PREFIX = "SHARED_MEMORY"
 SCHEDULE_INTERVAL = 0.1
@@ -34,9 +34,9 @@ def consume_job(shared_memory_name_keys):
             memory.close_fd()
 
             s = utils.read_from_memory(mapfile)
-            gc.on_service_is_up(name_key)
+            general_controller.on_service_is_up(name_key)
         except:
-            gc.on_service_is_down(name_key)
+            general_controller.on_service_is_down(name_key)
 
 
 shared_memory_keys = utils.prefix_search(params, SHARED_MEMORY_PREFIX)
