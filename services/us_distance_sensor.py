@@ -20,7 +20,7 @@ import utils
 PY_MAJOR_VERSION = sys.version_info[0]
 params = utils.read_params()
 # Create the shared memory and the semaphore.
-memory = posix_ipc.SharedMemory(params["SHARED_MEMORY_NAME_MOVEMENT_SENSOR"], posix_ipc.O_CREX,
+memory = posix_ipc.SharedMemory(params["SHARED_MEMORY_NAME_MOVEMENT_SENSOR"], posix_ipc.O_CREAT,
                                 size=params["SHM_SIZE"])
 
 # MMap the shared memory

@@ -3,6 +3,7 @@ import time
 import board
 import busio
 import adafruit_adxl34x
+
 import mmap
 import sys
 import hashlib
@@ -16,7 +17,7 @@ params = utils.read_params()
 adxl = {"X":None ,"Y":None, "Z":None, "Falling":False} #the data that will be saved at the posix shared memory
 
 # Create the shared memory and the semaphore.
-memory = posix_ipc.SharedMemory(params["SHARED_MEMORY_NAME"], posix_ipc.O_CREX,
+memory = posix_ipc.SharedMemory(params["SHARED_MEMORY_NAME"], posix_ipc.O_CREAT,
                                 size=params["SHM_SIZE"])
 # MMap the shared memory
 mapfile = mmap.mmap(memory.fd, memory.size)
