@@ -24,7 +24,7 @@ def consume_job(shared_memory_name_keys):
         try:
             print("try to read... " + name_key)
             # Create the shared memory and the semaphore.
-            memory = posix_ipc.SharedMemory(params[name_key])
+            memory = posix_ipc.SharedMemory(params[name_key], posix_ipc.O_CREAT, size=params["SHM_SIZE"])
 
             # MMap the shared memory
             mapfile = mmap.mmap(memory.fd, memory.size)
@@ -38,9 +38,9 @@ def consume_job(shared_memory_name_keys):
         except:
             gc.on_service_is_down(name_key)
 
+
 shared_memory_keys = utils.prefix_search(params, SHARED_MEMORY_PREFIX)
 schedule.every(SCHEDULE_INTERVAL).seconds.do(consume_job, shared_memory_keys)
-
 
 while True:
     schedule.run_pending()
