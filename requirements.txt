@@ -3,5 +3,6 @@ schedule
 pytrie
 gpiozero
 board
-busio
-adafruit_adxl34x
+RPI.GPIO
+adafruit-blinka
+schedule
