@@ -4,6 +4,8 @@ from pytrie import StringTrie
 from gpiozero import TonalBuzzer
 from gpiozero.tones import Tone
 
+from general_controller import onStopEvent
+
 PY_MAJOR_VERSION = sys.version_info[0]
 PARAM_FOLDER = "./params.txt"
 
@@ -111,11 +113,15 @@ def prefix_search(arr, prefix):
     return trie.values(prefix)
 
 
-def buzzers(state=True):
+def buzzers():
     buzzer = TonalBuzzer(17)
-    
-    while state:
+
+    while True:
         buzzer.play("A5")
-        print("btuzzz")
-     
-    buzzer.stop()
+        time.sleep(1)
+        if onStopEvent.is_set():
+            buzzer.stop()
+            break
+
+
+

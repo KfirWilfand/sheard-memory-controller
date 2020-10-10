@@ -10,7 +10,7 @@ import traceback
 import posix_ipc
 
 # Utils for this demo
-import utils
+from services import utils
 
 import general_controller
 
