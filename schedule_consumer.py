@@ -1,4 +1,5 @@
 # Python modules
+import json
 import mmap
 import sys
 import schedule
@@ -33,8 +34,8 @@ def consume_job(shared_memory_name_keys):
             # interfering with the mmap.
             memory.close_fd()
 
-            s = utils.read_from_memory(mapfile)
-            general_controller.on_service_is_up(name_key)
+            data = json.loads(utils.read_from_memory(mapfile))
+            general_controller.on_service_is_up(name_key, data)
         except:
             general_controller.on_service_is_down(name_key)
 

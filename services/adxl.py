@@ -1,7 +1,7 @@
 #pythom modules
 import time
 import board
-import busio
+import busio from adafruit-blinka
 import adafruit_adxl34x
 
 import mmap

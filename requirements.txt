@@ -2,7 +2,6 @@ posix_ipc
 schedule
 pytrie
 gpiozero
-board
 RPI.GPIO
 adafruit-blinka
 adafruit-circuitpython-adxl34x
