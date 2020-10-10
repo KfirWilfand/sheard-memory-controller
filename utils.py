@@ -56,7 +56,7 @@ def read_from_memory(mapfile):
         s = [chr(c) for c in s]
     s = ''.join(s)
 
-    say("read %s" % s)
+    #say("read %s" % s)
 
     return s
 

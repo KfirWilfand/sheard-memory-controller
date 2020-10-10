@@ -1,9 +1,9 @@
 #pythom modules
 import time
 import board
-import busio from adafruit-blinka
+import busio 
 import adafruit_adxl34x
-
+import json
 import mmap
 import sys
 import hashlib
@@ -14,7 +14,7 @@ import utils
 
 PY_MAJOR_VERSION = sys.version_info[0]
 params = utils.read_params()
-adxl = {"X":None ,"Y":None, "Z":None, "Falling":False} #the data that will be saved at the posix shared memory
+adxl = {"X":"None" ,"Y":"None", "Z":"None", "Falling":"False"} #the data that will be saved at the posix shared memory
 
 # Create the shared memory and the semaphore.
 memory = posix_ipc.SharedMemory(params["SHARED_MEMORY_NAME_ACOUSTIC_SENSOR"], posix_ipc.O_CREAT,
@@ -36,5 +36,5 @@ while True:
     adxl["Y"] = acceleration[1]
     adxl["Z"] = acceleration[2]
     adxl["Falling"] = accelerometer.events["freefall"] #event for free falling, true when adxl sense free fall
-    utils.write_to_memory(mapfile, str(adxl))#writing the data as a string at the shared memory location
+    utils.write_to_memory(mapfile, json.dumps(adxl))#writing the data as a string at the shared memory location
     #time.sleep(1)

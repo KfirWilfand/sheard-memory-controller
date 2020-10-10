@@ -113,7 +113,9 @@ def prefix_search(arr, prefix):
 
 def buzzers(state=True):
     buzzer = TonalBuzzer(17)
-    if state:
+    
+    while state:
         buzzer.play("A5")
-    else:
-        buzzer.stop()
+        print("btuzzz")
+     
+    buzzer.stop()

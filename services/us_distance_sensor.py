@@ -3,6 +3,7 @@ import time
 import mmap
 import sys
 import hashlib
+import json
 
 # GPIO modules
 from gpiozero import DistanceSensor
@@ -30,7 +31,7 @@ mapfile = mmap.mmap(memory.fd, memory.size)
 # interfering with the mmap.
 memory.close_fd()
 # US sensor
-us_sensor = {"US-distance": None, "crashed": False}  # the data that will be saved at the posix shared memory
+us_sensor = {"US-distance": "None", "crashed": "False"}  # the data that will be saved at the posix shared memory
 crahed_dist = 30
 sensor = DistanceSensor(echo=18, trigger=17)  # declaration of the sensor as a DistanceSensor object
 
@@ -45,5 +46,5 @@ while True:
     else:
         us_sensor["crashed"] = False
 
-    utils.write_to_memory(mapfile, str(us_sensor))  # writing the data as a string at the shared memory location
+    utils.write_to_memory(mapfile, json.dumps(us_sensor))  # writing the data as a string at the shared memory location
     # sleep(0.1)

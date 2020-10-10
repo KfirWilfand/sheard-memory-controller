@@ -6,14 +6,13 @@ def on_service_is_down(name_key):
 
 
 def on_service_is_up(name_key, data):
+    print("test1" + str(data))
     if name_key == 'SHARED_MEMORY_NAME_MOVEMENT_SENSOR':
-        print("MOVEMENT_SENSOR: " + data['US-distance'])
         if data['crashed']:
             utils.buzzers(True)
         else:
             utils.buzzers(False)
     if name_key == 'SHARED_MEMORY_NAME_ACOUSTIC_SENSOR':
-        print("ACOUSTIC_SENSOR")
         if data['Falling']:
             utils.buzzers(True)
         else:
