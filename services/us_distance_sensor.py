@@ -32,7 +32,7 @@ mapfile = mmap.mmap(memory.fd, memory.size)
 memory.close_fd()
 # US sensor
 us_sensor = {"US-distance": "None", "crashed": "False"}  # the data that will be saved at the posix shared memory
-crahed_dist = 30
+crahed_dist = 5
 sensor = DistanceSensor(echo=18, trigger=17)  # declaration of the sensor as a DistanceSensor object
 
 while True:
