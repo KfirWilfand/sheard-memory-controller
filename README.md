@@ -1,1 +1,1 @@
-# sheard-memory-controller
+# wearable system
