@@ -1,4 +1,0 @@
-gpiozero
-board
-busio
-adafruit_adxl34x
